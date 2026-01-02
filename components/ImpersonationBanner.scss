@@ -1,0 +1,229 @@
+/**
+ * Impersonation Banner Styles
+ *
+ * Customize these styles to match your application's design system.
+ */
+
+.impersonation-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+
+  &.not-impersonating {
+    background-color: #f0f9ff; // Light blue
+    border-bottom: 1px solid #bae6fd;
+  }
+
+  &.impersonating {
+    background-color: #fef3c7; // Light amber/warning
+    border-bottom: 2px solid #f59e0b;
+  }
+}
+
+.impersonation-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Active impersonation info display
+.impersonation-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .impersonation-label {
+    font-weight: 600;
+    color: #92400e;
+  }
+
+  .impersonation-role {
+    font-weight: 700;
+    color: #d97706;
+    padding: 0.125rem 0.5rem;
+    background-color: #fffbeb;
+    border-radius: 0.25rem;
+  }
+
+  .impersonation-separator {
+    color: #92400e;
+  }
+
+  .impersonation-entity {
+    color: #92400e;
+  }
+}
+
+// Impersonation controls form
+.impersonation-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 500;
+    color: #0369a1;
+    white-space: nowrap;
+  }
+}
+
+.selector-wrapper {
+  min-width: 200px;
+}
+
+// Default select styling
+.impersonation-select {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  background-color: white;
+  min-width: 180px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Default input styling
+.impersonation-input {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.375rem;
+  background-color: white;
+  min-width: 150px;
+
+  &:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // Hide number spinners
+  &[type="number"] {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Button styling
+.apply-button,
+.clear-button {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.apply-button {
+  background-color: #0ea5e9;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: #0284c7;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #0ea5e9;
+  }
+}
+
+.clear-button {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+
+  &:hover:not(:disabled) {
+    background-color: #e2e8f0;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #94a3b8;
+  }
+
+  // Warning style when impersonating
+  .impersonating & {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #f59e0b;
+
+    &:hover:not(:disabled) {
+      background-color: #fde68a;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .impersonation-banner {
+    padding: 0.75rem;
+  }
+
+  .impersonation-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .control-group {
+    width: 100%;
+    justify-content: center;
+
+    label {
+      min-width: 80px;
+      text-align: right;
+    }
+  }
+
+  .selector-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .impersonation-select,
+  .impersonation-input {
+    width: 100%;
+    min-width: 0;
+  }
+}
